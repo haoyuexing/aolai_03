@@ -15,9 +15,12 @@ def init_driver():
     # 需要启动的程序的界面名
     desired_caps['appActivity'] = 'com.yunmall.ymctoc.ui.activity.MainActivity'
 
-    # 解决中文输入的问题
-    desired_caps['unicodeKeyboard'] = True
-    desired_caps['resetKeyboard'] = True
+    # # 解决中文输入的问题
+    # desired_caps['unicodeKeyboard'] = True
+    # desired_caps['resetKeyboard'] = True
+
+    # 使用 uiautomator2 的框架
+    desired_caps['automationName'] = 'Uiautomator2'
 
     # 连接appium服务器
     return webdriver.Remote('http://192.168.1.102:4723/wd/hub', desired_caps)

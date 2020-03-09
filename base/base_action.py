@@ -25,7 +25,7 @@ class BaseAction:
 
     def is_toast_exist(self, text):
         try:
-            self.find_element((By.XPATH, "//*[@contains," + text + "]"), 5, 0.1)
+            self.find_element((By.XPATH, "//*[contains(@text, '" + text + "')]"), 5, 0.1)
             return True
         except Exception as e:
             return False
