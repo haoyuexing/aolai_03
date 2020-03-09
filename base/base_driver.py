@@ -15,6 +15,8 @@ def init_driver():
     # 需要启动的程序的界面名
     desired_caps['appActivity'] = 'com.yunmall.ymctoc.ui.activity.MainActivity'
 
+    # desired_caps['noReset'] = True
+
     # # 解决中文输入的问题
     # desired_caps['unicodeKeyboard'] = True
     # desired_caps['resetKeyboard'] = True
