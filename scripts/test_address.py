@@ -95,3 +95,21 @@ class TestAddress:
         assert self.page.address_list.is_toast_exist("保存成功")
         # 断言 列表的第一个值 是否和刚刚输入的一样
         assert self.page.address_list.get_first_name_and_phone_text() == "%s  %s" % ("xiaoqiang", "17777777777")
+
+    def test_delete_address(self):
+        # 首页 - 点击关闭
+        self.page.home.click_close()
+        # 首页 - 如果没有登录就去登录
+        self.page.home.login_if_not(self.page)
+        # 首页 - 点击我
+        self.page.home.click_me()
+        # 我 - 点击设置
+        self.page.me.click_setting()
+        # 设置 - 点击地址管理
+        self.page.setting.click_address_list()
+
+        # 地址管理 - 删除10次地址
+        self.page.address_list.delete_address_ten_time()
+
+        assert not self.page.address_list.is_default_label_exist()
+
