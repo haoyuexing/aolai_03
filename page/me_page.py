@@ -11,6 +11,8 @@ class MePage(BaseAction):
 
     setting_button = By.ID, "com.yunmall.lc:id/ymtitlebar_left_btn_image"
 
+    vip_button = By.XPATH, "//*[@text='加入超级VIP']"
+
     def get_nikename_text(self):
         return self.get_text(self.nikename_label)
 
@@ -18,4 +20,7 @@ class MePage(BaseAction):
         self.click(self.home_button)
 
     def click_setting(self):
-        self.click(self.setting_button)
+        self.find_element_with_scroll(self.setting_button).click()
+
+    def click_vip(self):
+        self.find_element_with_scroll(self.vip_button).click()
