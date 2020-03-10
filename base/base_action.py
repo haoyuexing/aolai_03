@@ -40,20 +40,30 @@ class BaseAction:
         except Exception as e:
             return False
 
-    def is_toast_exist(self, text):
+    def is_toast_exist(self, text, timeout=5.0, poll=0.1):
         """
         根据toast上的文字，查找是否存在
         :param text: 文字
         :return:
         """
         try:
-            self.find_element((By.XPATH, "//*[contains(@text, '" + text + "')]"), 5, 0.1)
+            self.find_element((By.XPATH, "//*[contains(@text, '" + text + "')]"), timeout, poll)
             return True
         except Exception as e:
             return False
 
-    def get_toast_text(self, text):
-        return self.find_element((By.XPATH, "//*[contains(@text, '" + text + "')]"), 5, 0.1).text
+    def get_toast_text(self, text, timeout=5.0, poll=0.1):
+        return self.find_element((By.XPATH, "//*[contains(@text, '" + text + "')]"), timeout, poll).text
+
+    def is_text_in_page_source(self, text, timeout=5.0, poll=0.1):
+        end_time = time.time() + timeout
+        while True:
+            if text in self.driver.page_source:
+                return True
+            else:
+                if time.time() > end_time:
+                    return False
+                time.sleep(poll)
 
 
     def scroll_page_one_time(self, direction='up'):

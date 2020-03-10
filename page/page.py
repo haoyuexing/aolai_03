@@ -10,6 +10,7 @@ from page.me_page import MePage
 from page.reg_page import RegPage
 from page.region_page import RegionPage
 from page.setting_page import SettingPage
+from page.vip_page import VipPage
 
 
 class Page:
@@ -64,4 +65,8 @@ class Page:
     @property
     def goods_list(self):
         return GoodsListPage(self.driver)
+
+    @property
+    def vip(self):
+        return VipPage(self.driver)
 
