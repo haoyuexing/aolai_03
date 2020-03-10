@@ -25,7 +25,24 @@ class BaseAction:
     def get_text(self, feature, timeout=10.0, poll=1.0):
         return self.find_element(feature, timeout, poll).text
 
+    def is_element_exist(self, feature):
+        """
+        根据特征判断这个元素是否存在
+        :param feature: 元素的特征
+        :return:
+        """
+        try:
+            self.find_element(feature)
+            return True
+        except Exception as e:
+            return False
+
     def is_toast_exist(self, text):
+        """
+        根据toast上的文字，查找是否存在
+        :param text: 文字
+        :return:
+        """
         try:
             self.find_element((By.XPATH, "//*[contains(@text, '" + text + "')]"), 5, 0.1)
             return True
