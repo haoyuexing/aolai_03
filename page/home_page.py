@@ -11,11 +11,17 @@ class HomePage(BaseAction):
     # 首页 - 我
     me_button = By.ID, "com.yunmall.lc:id/tab_me"
 
+    # 首页 - 分类
+    category_button = By.ID, "com.yunmall.lc:id/tab_category"
+
     def click_close(self):
         self.click(self.close_button)
 
     def click_me(self):
         self.click(self.me_button)
+
+    def click_category(self):
+        self.click(self.category_button)
 
     def login_if_not(self, page):
         """
