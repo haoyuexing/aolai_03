@@ -24,5 +24,9 @@ class TestShopCart:
         self.page.goods_list.click_goods_detail_image()
         # 商品详情 - 加入购物车
         self.page.goods_detail.click_add_shop_cart()
+        # 商品详情 - 选择规格
+        self.page.goods_detail.choose_spec()
+
+        assert self.page.goods_detail.is_toast_exist("成功加入购物车")
 
 

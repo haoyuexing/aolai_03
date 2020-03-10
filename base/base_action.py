@@ -52,6 +52,10 @@ class BaseAction:
         except Exception as e:
             return False
 
+    def get_toast_text(self, text):
+        return self.find_element((By.XPATH, "//*[contains(@text, '" + text + "')]"), 5, 0.1).text
+
+
     def scroll_page_one_time(self, direction='up'):
         """
         在当前页面滑动一次
