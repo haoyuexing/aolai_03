@@ -1,3 +1,5 @@
+import time
+
 from base.base_driver import init_driver
 from page.page import Page
 
@@ -34,3 +36,10 @@ class TestAddress:
         self.page.edit_address.input_post_code("100000")
         # 编辑地址 - 点击默认地址
         self.page.edit_address.click_default()
+        # 编辑地址 - 点击选择区域
+        self.page.edit_address.click_region()
+        # 选择区域 - 开始选择
+        self.page.region.click_region()
+
+        # 编辑地址 - 保存
+        self.page.edit_address.click_save()

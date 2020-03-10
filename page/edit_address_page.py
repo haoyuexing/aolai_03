@@ -11,6 +11,10 @@ class EditAddressPage(BaseAction):
     post_code_edit_text = By.ID, "com.yunmall.lc:id/address_post_code"
     default_button = By.ID, "com.yunmall.lc:id/address_default"
 
+    region_button = By.ID, "com.yunmall.lc:id/address_province"
+
+    save_button = By.XPATH, "//*[@text='保存']"
+
     def input_name(self, text):
         self.input(self.name_edit_text, text)
 
@@ -26,4 +30,8 @@ class EditAddressPage(BaseAction):
     def click_default(self):
         self.click(self.default_button)
 
+    def click_region(self):
+        self.click(self.region_button)
 
+    def click_save(self):
+        self.click(self.save_button)
