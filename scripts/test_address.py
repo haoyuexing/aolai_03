@@ -43,3 +43,6 @@ class TestAddress:
 
         # 编辑地址 - 保存
         self.page.edit_address.click_save()
+
+        assert self.page.address_list.get_first_name_and_phone_text() == "xiaoming  18888888888"
+
